@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+    aria-expanded="false" aria-label="Toggle navigation" (click)="navbarVisible = !navbarVisible">
+  <span class="navbar-toggler-icon"></span>
+</button>
+  <a class="navbar-brand" href="#">{{title}}</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [class.show]="navbarVisible">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+  <div class="dropdown">
+    <i class="fa fa-2x fa-user-circle text-light" aria-hidden="true" (click)="userNavVisible = !userNavVisible"></i>
+    <div class="dropdown-menu dropdown-menu--right" [class.show]="userNavVisible">
+      <a class="dropdown-item" href="#">Profile</a>
+      <a class="dropdown-item" href="#">Settings</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Logout</a>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,33 @@
+<div class="post-list-container">
+  <form class="form-vertical" role="form">
+    <div class="row">
+      <div class="col-sm-10">
+        <div class="input-group">
+          <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchText" (keyup)="searchChanged($event)" (change)="searchChanged($event)" id="searchText" name="searchText">
+          <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" (click)="searchChanged($event)"><i class="fa fa-search" aria-hidden="true"></i>Search</button>
+                    </span>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="post-item-container" *ngFor="let case of lawcase">
+        <h4>
+          <a [routerLink]="['/detail',case.id]">{{case.caseName}}</a>
+        </h4>
+        <p>
+          <i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;{{case.mnc}} &nbsp;&nbsp;&nbsp;&nbsp;
+          <!--<i class="fa fa-comment" aria-hidden="true"></i>&nbsp;{{post.commentTimes}} &nbsp;&nbsp;&nbsp;&nbsp;-->
+          <!--<i class="fa fa-eye" aria-hidden="true"></i>&nbsp;{{post.readTimes}} &nbsp;&nbsp;&nbsp;&nbsp;{{post.userName }} &nbsp;&nbsp;&nbsp;&nbsp;{{post.postTime}}-->
+        </p>
+      </div>
+      <!--<p-paginator rows="{{itemsPerPage}}"-->
+                   <!--totalRecords="{{totalRecords}}"-->
+                   <!--first="{{offset}}"-->
+                   <!--(onPageChange)="pageChanged($event)">-->
+      <!--</p-paginator>-->
+    </div>
+  </div>
+</div>

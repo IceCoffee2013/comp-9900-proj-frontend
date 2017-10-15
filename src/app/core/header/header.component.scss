@@ -1,0 +1,9 @@
+.dropdown {
+    >i {
+        cursor: pointer;
+    }
+    .dropdown-menu--right {
+        right: 0;
+        left: auto;
+    }
+}

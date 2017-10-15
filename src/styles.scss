@@ -1,0 +1,16 @@
+@import './scss/_variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import '../node_modules/font-awesome/scss/font-awesome';
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 3rem;
+}
+
+.container-fluid {
+  padding: 1rem;
+}

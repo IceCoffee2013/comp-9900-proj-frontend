@@ -1,0 +1,16 @@
+<div class="post-detail-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h4>{{ lawcase?.caseName }}</h4>
+      <p>{{ lawcase?.mnc }} </p>
+      <p>{{ lawcase?.decisionDate }} </p>
+      <p>{{ lawcase?.category }} </p>
+      <p>{{ lawcase?.catchwords }}</p>
+      <p>{{ lawcase?.decision }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" [innerHTML]="lawcase?.judgment">
+    </div>
+  </div>
+</div>

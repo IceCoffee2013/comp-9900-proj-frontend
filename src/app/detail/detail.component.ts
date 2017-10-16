@@ -11,6 +11,7 @@ import {Lawcase} from "../model/lawcase-model";
 export class DetailComponent implements OnInit {
 
   public lawcase: Lawcase;
+  public tags;
 
   constructor(public router: Router,
               public activeRoute: ActivatedRoute,
@@ -19,7 +20,10 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.params.subscribe(
-      params => this.getCase(params["id"])
+      params => {
+        this.getCase(params["id"]);
+        this.getTag(params["id"]);
+      }
     );
   }
 
@@ -30,6 +34,19 @@ export class DetailComponent implements OnInit {
         data => {
           console.log(data);
           this.lawcase = data
+        },
+        error => console.error(error)
+      );
+  }
+
+  public getTag(id: number) {
+    this.caseService
+      .getTagFilter(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          console.log(typeof data);
+          this.tags = data;
         },
         error => console.error(error)
       );

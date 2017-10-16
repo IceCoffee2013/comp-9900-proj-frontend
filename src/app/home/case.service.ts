@@ -25,4 +25,8 @@ export class CaseService {
     return this.http.get<Lawcase[]>(this.baseUrl);
   }
 
+  public getTagFilter(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + "/tag/" + id);
+  }
+
 }

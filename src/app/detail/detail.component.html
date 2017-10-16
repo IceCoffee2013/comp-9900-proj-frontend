@@ -1,16 +1,125 @@
 <div class="post-detail-container">
   <div class="row">
     <div class="col-sm-12">
-      <h4>{{ lawcase?.caseName }}</h4>
-      <p>{{ lawcase?.mnc }} </p>
-      <p>{{ lawcase?.decisionDate }} </p>
-      <p>{{ lawcase?.category }} </p>
-      <p>{{ lawcase?.catchwords }}</p>
-      <p>{{ lawcase?.decision }}</p>
+
+      <table class="table">
+        <tbody>
+        <tr>
+          <th scope="row">ID</th>
+          <td>{{ lawcase?.id }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Case Name</th>
+          <td>{{ lawcase?.caseName }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Decision Date</th>
+          <td>{{ lawcase?.decisionDate }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Category</th>
+          <td>{{ lawcase?.category }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Catchwords</th>
+          <td>{{ lawcase?.catchwords }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Decision</th>
+          <td>{{ lawcase?.decision }}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Judgment</th>
+          <td>{{ lawcase?.judgment }}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Url</th>
+          <td><a href="{{ lawcase?.url }}">{{ lawcase?.url }}</a></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Parties</th>
+          <td>{{ lawcase?.parties }}</td>
+        </tr>
+
+        <tr *ngFor="let r of lawcase?.relevance">
+          <th scope="row">Relevance</th>
+          <td><a href="{{ r?.url }}">{{ r?.title }}</a> - {{ r?.value }}</td>
+        </tr>
+
+        </tbody>
+      </table>
+
+      <h4>Tags:</h4>
+      <table class="table">
+        <tbody>
+        <tr>
+          <th scope="row">Suburb</th>
+          <td>{{ tags?.suburb }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Car Type</th>
+          <td>{{ tags?.car_type }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Street Type</th>
+          <td>{{ tags?.street_type }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Car Brand</th>
+          <td>{{ tags?.car_brand }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Car Body Type</th>
+          <td>{{ tags?.car_body_type }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Injury Type</th>
+          <td>{{ tags?.injury_type }}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Common Keywords</th>
+          <td>{{ tags?.common_keywords }}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Speed Limit</th>
+          <td>{{ tags?.speed_limit }}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Speeding Word</th>
+          <td>{{ tags?.speeding_word }}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Dying Info</th>
+          <td>{{ tags?.dying_info }}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Dates</th>
+          <td>{{ tags?.dates }}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Moneys</th>
+          <td>{{ tags?.moneys }}</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Speeds</th>
+          <td>{{ tags?.speeds }}</td>
+        </tr>
+
+
+        </tbody>
+      </table>
+
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12" [innerHTML]="lawcase?.judgment">
-    </div>
+
   </div>
 </div>

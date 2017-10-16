@@ -6,7 +6,7 @@ import {Observable} from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import {Lawcase} from "../model/lawcase-model";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 
 
 @Injectable()
@@ -21,8 +21,12 @@ export class CaseService {
     return this.http.get<Lawcase>(this.baseUrl + "/detail/" + id);
   }
 
-  public getAllCases(): Observable<Lawcase[]> {
-    return this.http.get<Lawcase[]>(this.baseUrl);
+  public getAllCases(searchText: string): Observable<Lawcase[]> {
+    let url = this.baseUrl;
+    if (searchText) {
+      url = url + "?searchText=" + searchText;
+    }
+    return this.http.get<Lawcase[]>(url);
   }
 
   public getTagFilter(id: number): Observable<any> {

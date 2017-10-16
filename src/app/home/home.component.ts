@@ -32,23 +32,24 @@ export class HomeComponent implements OnInit {
     this.activeRoute.params.subscribe(params => {
       console.log(params);
       this.currentPage = params["page"];
-      this.loadData(this.searchText);
+      this.loadAllData(this.searchText);
     });
 
     this.searchTextStream
       .debounceTime(500)
       .distinctUntilChanged()
       .subscribe(searchText => {
-        console.log(this.searchText);
+        console.log("searchText", this.searchText);
         // this.loadData(this.searchText)
         this.loadAllData(this.searchText);
       });
   }
 
   public loadAllData(searchText: string) {
-    return this.caseService.getAllCases().subscribe(
+    return this.caseService.getAllCases(searchText).subscribe(
       res => {
         this.lawcase = res;
+        // console.log(this.lawcase.length);
       },
       error => {
         console.log(error)
@@ -61,7 +62,7 @@ export class HomeComponent implements OnInit {
   public loadData(searchText: string) {
     this.offset = (this.currentPage - 1) * this.itemsPerPage;
     this.end = (this.currentPage) * this.itemsPerPage;
-    return this.caseService.getAllCases().subscribe(
+    return this.caseService.getAllCases(searchText).subscribe(
       res => {
         this.lawcase = res.slice(this.offset, this.end > this.totalRecords ? this.totalRecords : this.end);
       },
